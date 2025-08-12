@@ -1,33 +1,57 @@
+/* ===== Тема (CSS переменные) ===== */
+:root {
+  --bg-color: #f4f6f8;
+  --text-color: #222;
+  --container-bg: #fff;
+  --input-bg: #fff;
+  --result-bg: #f0f7f0;
+  --result-text: #2e7d32;
+}
+
+body.dark-theme {
+  --bg-color: #222;
+  --text-color: #f4f6f8;
+  --container-bg: #333;
+  --input-bg: #444;
+  --result-bg: #2e7d32;
+  --result-text: #f0f7f0;
+}
+
+/* ===== Общие стили ===== */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6f8;
-  color: #222;
+  background: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
+  transition: background 0.3s, color 0.3s;
 }
+
 .container {
-  background: white;
+  background: var(--container-bg);
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   width: 100%;
   max-width: 400px;
+  transition: background 0.3s, color 0.3s;
 }
+
 h1 {
   text-align: center;
   font-size: 1.4rem;
   margin-bottom: 20px;
-  color: #333;
 }
+
 label {
   font-size: 0.9rem;
   margin-bottom: 5px;
   display: block;
-  color: #555;
 }
+
 input {
   width: 100%;
   padding: 10px;
@@ -36,24 +60,48 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  background: var(--input-bg);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+
 input:focus {
   border-color: #4CAF50;
   outline: none;
 }
+
 .result {
-  background: #f0f7f0;
+  background: var(--result-bg);
   border: 1px solid #d5e8d4;
   padding: 15px;
   border-radius: 8px;
   font-size: 1rem;
   text-align: center;
-  color: #2e7d32;
+  color: var(--result-text);
+  transition: background 0.3s, color 0.3s;
 }
+
 .note {
   font-size: 0.8rem;
   color: #777;
   text-align: center;
   margin-top: 10px;
+}
+
+/* ===== Кнопка темы ===== */
+#theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #4CAF50;
+  color: white;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+#theme-toggle:hover {
+  background: #45a049;
 }
